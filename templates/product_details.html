@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}products Details{% endblock title %}
+
+
+{% block banner %} 
+<!-- Page Header Area Start -->
+<div class="page-header">
+   <div class="content">
+       <h2 class="color-white">Product Details</h2>
+   </div>
+</div>
+<!-- Page Header Area End -->
+ {% endblock banner %}
+
+
+{% block containt %}
+
+ <!-- Product Detail Area Start -->
+ <section class="py-80">
+    <div class="container-fluid">
+        <div class="product-detail">
+            <div class="row row-gap-4">
+                <!-- product-detail-image-slider -->
+                <div class="col-md-6">
+                    <div class="row align-items-center row-gap-3">
+                        <div class="preview-slider">
+                            <div class="detail-img-block">
+                                <img alt=""  src="{{product.thumblain.url}}">
+                            </div>
+                            {% comment %} choice {% endcomment %}
+                          {% for image in images  %}
+                            <div class="detail-img-block">
+                                <img alt=""  src="{{image.image.url}}">
+                            </div>
+                            {% endfor %}
+                            
+                            
+                            
+                            
+                        </div>
+{% comment %}  {% endcomment %}
+
+
+
+                        <div class="preview-slider-nav row">
+                            <div class="col-12">
+                            <div class="detail-img-block">
+                                <img alt=""  src="{{product.thumblain.url}}">
+                            </div>
+                        </div>
+
+                     {% for image in images %}
+                            <div class="col-12">
+                                <div class="detail-img-block">
+                                    <img alt=""  src="{{image.image.url}}">
+                                </div>
+                            </div>
+                            {% endfor %}
+                           
+                           
+                           
+                           
+                           
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <!-- Product-detail -->
+                <div class="col-xl-5 col-md-6">
+                    <div class="product-detail-content">
+                        <div class="d-flex align-items-center column-gap-2 row-gap-5 mb-20">
+                            <h4 class="color-white">{{product.product_title}}</h4>
+                        </div>
+                        <div class="action-block mb-16">
+                            
+                            
+                            <a href="{{product.link}}" class="cus-btn" target=blank>Buy ON Amazon</a>
+                        </div>
+                        {% comment %} <ul class="list-unstyled mb-32 d-flex flex-column gap-3">
+                            <li><span class="me-1">Brand: </span><span class="color-white">Vopo</span></li>
+                            <li class="d-flex align-items-center gap-2">
+                                <div class="d-flex align-items-center"><span class="rating-stars me-1"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></div> 
+                                <span class="dark-gray">(02)</span>
+                            </li>
+                        </ul> {% endcomment %}
+                        <div class="price mb-32">
+                            <h6 class="text-warning me-1">Description:</h6>
+                            {% comment %} <del class="h6 dark-gray">$50.00</del> {% endcomment %}
+                        </div>
+                        <p class="mb-32 text-white ">{{product.descriptions}}</p>
+                        {% comment %} <ul class="list-unstyled mb-32">
+                            <li class="mb-16"><span class="bold-text color-white me-1">Item Category: </span><span>Vape Devices</span></li>
+                            <li class="mb-16"><span class="bold-text color-white me-1">Item Code:  </span><span>Item Code:  KP-3092</span></li>
+                            <li><span class="bold-text color-white me-1">Item Tags: </span><span>vape, device, electric</span></li>
+                        </ul> {% endcomment %}
+                        {% comment %} <div class="action-block mb-16">
+                            
+                            
+                            <a href="{{product.link}}" class="cus-btn" target=blank>Buy No Amazon</a>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product Detail Area End -->
+
+{% endblock containt %}

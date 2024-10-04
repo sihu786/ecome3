@@ -1,0 +1,13 @@
+{% load static %}
+
+ <!-- Search Popup Start -->
+ <div class="search-popup">
+    <div class="search-popup__overlay search-toggler"></div>
+    <div class="search-popup__content">
+        <form role="search" method="GET" class="search-popup__form" action="{% url "search" %}">
+            <input type="text" id="search" name="search" placeholder="Search Here...">
+            <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+    </div>
+</div>
+<!-- Search Popup End -->

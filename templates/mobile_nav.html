@@ -1,0 +1,40 @@
+{% load static %}
+<!-- Mobile Menu Start -->
+<div class="mobile-nav__wrapper">
+    <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+    <div class="mobile-nav__content">
+        <span class="mobile-nav__close mobile-nav__toggler"></span>
+        <div class="logo-box">
+            <a href="index.html" aria-label="logo image"><img src="assets/media/logo.png" alt=""></a>
+        </div>
+        <div class="main-menu__nav">
+        <ul class="main-menu__list">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0);" >Shop</a>
+                {% comment %} <ul class="sub-menu">
+                    <li><a href="shop-grid.html" class="active">Shop Grid</a></li>
+                    <li><a href="shop-grid-sidebar.html">Shop Grid (Sidebar)</a></li>
+                    <li><a href="shop-list.html">Shop List</a></li>
+                    <li><a href="product-detail.html">Product Detail</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="checkout.html">Checkout</a></li>
+                </ul> {% endcomment %}
+            </li>
+            
+            <li class="dropdown">
+                <a href="javascript:void(0);">Pages</a>
+                {% comment %} <ul class="sub-menu">
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul> {% endcomment %}
+            </li>
+        </ul>
+        <form class="d-flex"  method="GET" action="{% url "search" %}" >
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+    </div>
+    </div>
+</div>
+<!-- Mobile Menu End -->

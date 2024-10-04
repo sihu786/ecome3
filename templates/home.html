@@ -1,0 +1,52 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block banner %} 
+<!-- Page Header Area Start -->
+<div class="page-header">
+   <div class="content">
+       <h2 class="color-white">Shop</h2>
+   </div>
+</div>
+<!-- Page Header Area End -->
+ {% endblock banner %}
+{% block containt %}
+
+
+        <!-- Shop Area Start -->
+        <section class="py-80">
+            <div class="container-fluid">
+                
+                <div class="row row-gap-4">
+                    <!-- Product Card -->
+                    {% for product in products  %}
+                    <div class="col-lg-3 col-md-4 col-6">
+                       
+                        <div class="product-card">
+                            <div class="img-block">
+                                <a href="{% url "product_details" product.slug %}">
+                                <img src="{{product.thumblain.url}}" alt=""></a>
+                            </div>
+                            <div class="text-block">
+                                <a href="{% url "product_details" product.slug %}" class="h6 mb-8 d-block color-white">{{product.product_title}}</a>
+                                <span class="stars mb-8">★ =======* </span>
+                                <p class="mb-20">{{product.descriptions}}</p>
+                                <h6 class="color-white">$49.00</h6>
+                            </div>
+                           
+                        </div>
+                       
+                    </div>
+                  
+                    {% endfor %}
+                    
+                   
+                   {% include "pagination.html" %}
+
+                </div>
+            </div>
+        </section>
+        <!-- Shop Area End --> 
+
+{% endblock containt %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Search{% endblock title %}
+{% block banner %} 
+<!-- Page Header Area Start -->
+<div class="page-header">
+   <div class="content">
+       <h2 class="color-white">Shop</h2>
+   </div>
+</div>
+<!-- Page Header Area End -->
+ {% endblock banner %}
+{% block containt %}
+
+
+        <!-- Shop Area Start -->
+        <section class="py-80">
+            <div class="container-fluid">
+                
+                <div class="row row-gap-4">
+                    <!-- Product Card -->
+                    {% for object in products %}
+                    <div class="col-lg-3 col-md-4 col-6">
+                       
+                        <div class="product-card">
+                            <div class="img-block">
+                                <a href="{% url "product_details" object.slug %}">
+                                <img src="{{object.thumblain.url}}" alt=""></a>
+                            </div>
+                            <div class="text-block">
+                                <a href="{% url "product_details" object.slug %}" class="h6 mb-8 d-block">{{object.product_title}}</a>
+                                <span class="stars mb-8">★ ★ ★ ★ ★ </span>
+                                <p class="mb-20">{{product.descriptions}}</p>
+                                <h6 class="color-white">$49.00</h6>
+                            </div>
+                            <a href="#" class="wishlist-icon"><i class="fa-light fa-heart"></i></a>
+                            <a class="cart-icon cart-button" href="javascript:;"><img src="{% static "assets/media/icons/cart.svg" %}" alt=""></a>
+                        </div>
+                       
+                    </div>
+                  
+                    {% endfor %}
+                    
+                   
+              <!-- Pagination Start -->
+ <ul class="pagination text-center">
+    {% if products.has_previous %}
+    <li><a class="next"  href="?search={{search_key}}&page={{ products.previous_page_number }}">Prev</a></li>
+    {% endif %}
+    
+    {% for page in products.paginator.page_range %}
+    {% if products.number > page|add:"-3" and products.number < page|add:'+3' %}
+    {% if page == products.number %}
+    <li><a class="active" href="?page={{products.previou_page_number}}">{{page}}</a></li>
+    {% else %}
+    <li><a href="?search={{search_key}}&page={{page}}">{{page}}</a></li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% if products.has_next %}
+    <li><a class="next" href="?search={{search_key}}&page={{products.next_page_number}}"> Next </a></li>
+{% endif %}
+</ul>
+<!-- Pagination End -->
+
+                </div>
+            </div>
+        </section>
+        <!-- Shop Area End --> 
+
+{% endblock containt %}
